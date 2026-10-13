@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f3ab8c"/><stop offset=".65" stop-color="#f7d7a6"/><stop offset="1" stop-color="#f3e5bb"/></linearGradient>
+    <linearGradient id="roof" x2="0" y2="1"><stop stop-color="#c69579"/><stop offset="1" stop-color="#9c6e69"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <circle cx="673" cy="129" r="63" fill="#ffe3ac" opacity=".85"/>
+  <path d="M0 314l108-82 102 42 118-112 148 125 116-71 208 97v115H0z" fill="#dcaa98" opacity=".55"/>
+  <path d="M0 377h800v223H0z" fill="url(#roof)"/>
+  <path d="M0 356h800v43H0z" fill="#f0d6ae" stroke="#b68578" stroke-width="9"/>
+  <path d="M35 339v-87M130 339v-87M225 339v-87M320 339v-87M415 339v-87M510 339v-87M605 339v-87M700 339v-87M795 339v-87" stroke="#c28e7b" stroke-width="12"/>
+  <path d="M0 253h800" stroke="#c28e7b" stroke-width="13"/>
+  <path d="M92 83l31 18-17-28M131 135l33 16-17-28M607 71l26 17-10-28" fill="none" stroke="#fff0ca" stroke-width="8" stroke-linecap="round"/>
+  <path d="M420 73l83 96-83 89-81-89z" fill="#5299a2" stroke="#436d79" stroke-width="8"/>
+  <path d="M420 73l-81 96h162z" fill="#eacb72"/>
+  <path d="M420 73v185M339 169h162" stroke="#f6edcc" stroke-width="6"/>
+  <path d="M420 257c-11 36 24 36 9 64 20 14 11 31 21 42" fill="none" stroke="#83676c" stroke-width="5"/>
+  <path d="M404 178h35" stroke="#416d78" stroke-width="5"/>
+  <text x="409" y="211" font-size="34" font-family="Arial" font-weight="700" fill="#334e5c">1</text>
+  <path d="M193 96l58 66-58 67-58-67z" fill="#e97568" stroke="#a65c60" stroke-width="8"/>
+  <path d="M193 96v133M135 162h116" stroke="#ffe2b1" stroke-width="5"/>
+  <text x="182" y="191" font-size="30" font-family="Arial" font-weight="700" fill="#fff0d3">2</text>
+  <path d="M193 229c-18 25 14 34-1 61" fill="none" stroke="#80676d" stroke-width="4"/>
+  <path d="M591 75l67 94-67 88-69-88z" fill="#8ab281" stroke="#4d807e" stroke-width="8"/>
+  <path d="M591 75v183M522 169h136" stroke="#fff0cb" stroke-width="5"/>
+  <text x="580" y="207" font-size="32" font-family="Arial" font-weight="700" fill="#37676a">3</text>
+  <path d="M591 257c-12 25 17 32 2 61" fill="none" stroke="#80676d" stroke-width="4"/>
+  <path d="M25 456 Q85 367 181 440 Q151 426 128 450 Q108 431 87 453 Q57 437 25 456z" fill="#e97970" stroke="#895e66" stroke-width="8"/>
+  <path d="M85 392 Q102 407 111 447M85 392 Q63 416 50 445M85 392 Q141 394 166 438" fill="none" stroke="#f7c39c" stroke-width="6"/>
+  <path d="M87 393l29 161q13 23 31 2" fill="none" stroke="#755d64" stroke-width="10" stroke-linecap="round"/>
+  <path d="M37 506l45-24 27 25-53 23zM142 476l35 15-16 25-39-17z" fill="#edaa82" stroke="#a66e69" stroke-width="5"/>
+  <path d="M215 413h90v145h-90z" fill="#b77468" stroke="#865b59" stroke-width="8"/>
+  <path d="M228 415c4-42 66-42 67 0" fill="none" stroke="#865b59" stroke-width="11"/>
+  <path d="M235 448l25 21 28-21M240 491h40" fill="none" stroke="#ebc190" stroke-width="6"/>
+  <path d="M340 399h209" stroke="#6e6466" stroke-width="6"/>
+  <path d="M363 400v50M423 400v47M493 400v50" stroke="#6e6466" stroke-width="5"/>
+  <path d="M354 422h36l11 42h-59zM410 417h38l8 49h-55zM475 418h39l7 47h-56z" fill="#e7aa7d" stroke="#9d6e67" stroke-width="4"/>
+  <path d="M366 399h13M427 399h13M496 399h13" stroke="#f9ddb4" stroke-width="11" stroke-linecap="round"/>
+  <path d="M562 416h198v147H562z" fill="#f6e5c0" stroke="#776b68" stroke-width="9" transform="rotate(-5 661 489)"/>
+  <path d="M581 455h153M581 481h153M581 509h153" stroke="#c9b395" stroke-width="4"/>
+  <path d="M591 455l18-19 17 22 20-14 16 8M593 481l23-13 17 16 19-26 20 25M594 509l18-14 21 13 17-9" fill="none" stroke="#5b9697" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M704 532l9-13 9 14 11-13" fill="none" stroke="#d97868" stroke-width="5"/>
+  <path d="M711 433l5 9 10 1-7 7 2 10-10-5-9 5 2-10-7-7 10-1zM709 475l5 9 10 1-7 7 2 10-10-5-9 5 2-10-7-7 10-1z" fill="#d97868" stroke="#a55857" stroke-width="2"/>
+  <ellipse cx="425" cy="572" rx="343" ry="17" fill="#765c5e" opacity=".2"/>
+</svg>

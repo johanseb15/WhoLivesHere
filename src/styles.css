@@ -1,0 +1,89 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1c2425;
+  background: #f6f3ed;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #145e65; outline-offset: 4px; }
+h1:focus, h2:focus { outline: 2px solid #145e65; outline-offset: 7px; border-radius: 2px; }
+.app-shell { min-height: 100vh; max-width: 1440px; margin: 0 auto; padding: 0 48px 48px; }
+.site-header { min-height: 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #d8d9d2; }
+.brand { font-family: Georgia, serif; font-weight: 700; font-size: 28px; letter-spacing: -.045em; }
+.brand-mark { color: #e76c41; }
+.edition { text-transform: uppercase; font-size: 11px; letter-spacing: .16em; font-weight: 700; color: #68716c; }
+.game-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(350px, .8fr); gap: clamp(36px, 5vw, 80px); padding-top: 36px; align-items: start; }
+.game-layout > * { min-width: 0; }
+.round-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.round-label, .eyebrow { text-transform: uppercase; font-size: 12px; letter-spacing: .18em; font-weight: 700; color: #b45433; }
+.round-dots { display: flex; gap: 7px; }
+.round-dots span { width: 7px; height: 7px; border-radius: 50%; background: #d0d4cb; }
+.round-dots span.active { background: #d56d43; }
+.scene { margin: 0; background: #e1e9e7; border-radius: 20px; overflow: hidden; box-shadow: 0 22px 55px rgba(37, 55, 49, .11); }
+.scene img { display: block; width: 100%; max-width: 100%; aspect-ratio: 1.33; object-fit: contain; }
+.scene figcaption { padding: 14px 20px; background: #193f40; color: #fffaf3; font-family: Georgia, serif; font-size: 21px; }
+.scene-note { font-size: 14px; line-height: 1.5; color: #61706a; }
+.question-panel, .reveal-panel { padding-top: clamp(26px, 5vw, 88px); }
+.eyebrow { margin: 0 0 18px; }
+h1, h2 { font-family: Georgia, serif; letter-spacing: -.045em; line-height: 1.12; }
+.question-panel h2 { font-size: clamp(36px, 3.5vw, 56px); margin: 0 0 36px; }
+.options { border: 0; margin: 0; padding: 0; display: grid; gap: 12px; }
+.options legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.option { width: 100%; min-height: 78px; padding: 16px 18px; background: #fffdf8; color: #26322f; border: 1px solid #d9dfd7; border-radius: 12px; display: grid; grid-template-columns: 34px 1fr 20px; align-items: center; gap: 14px; text-align: left; font-weight: 600; transition: border-color .15s, transform .15s, box-shadow .15s; }
+.option:hover { border-color: #b55c3b; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(57, 53, 37, .08); }
+.option-letter { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: #f4e4d5; color: #9b4c2d; font-size: 12px; }
+.option-arrow { color: #aaad9f; font-size: 22px; }
+.hint { margin-top: 24px; color: #717a73; font-size: 13px; line-height: 1.5; }
+.reveal-panel { padding-top: 24px; }
+.reveal-panel h2 { font-size: clamp(44px, 5vw, 70px); margin: 0 0 12px; }
+.profile-quote { font-family: Georgia, serif; font-size: 20px; line-height: 1.45; color: #28433e; }
+.reveal-copy { line-height: 1.55; color: #58635d; }
+.score-card { margin: 22px 0; border-radius: 12px; padding: 16px 20px; color: white; background: #1e4a48; display: flex; align-items: center; justify-content: space-between; }
+.score-card strong { font-family: Georgia, serif; font-size: 27px; }
+.answer-review { list-style: none; margin: 0 0 24px; padding: 0; }
+.answer-review li { border-bottom: 1px solid #d9ded7; padding: 12px 0; }
+.answer-review p { margin: 4px 0; line-height: 1.4; }
+.review-question { font-size: 13px; color: #66716b; }
+.review-choice { display: flex; justify-content: space-between; gap: 18px; font-weight: 700; }
+.review-explanation { color: #58635d; font-size: 13px; }
+.primary-button { min-height: 56px; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border: 0; border-radius: 10px; background: #a84629; color: #fff; font-weight: 700; }
+.primary-button:hover { background: #8f371e; }
+.result-panel { max-width: 650px; margin: min(12vh, 120px) auto; text-align: center; }
+.result-panel h1 { font-size: clamp(52px, 8vw, 100px); margin: 0; }
+.result-score { font-family: Georgia, serif; font-size: clamp(70px, 12vw, 140px); color: #d56d43; margin: 24px 0; }
+.result-panel > p:last-of-type { line-height: 1.5; color: #58635d; }
+.result-panel .primary-button { margin: 40px auto 0; max-width: 340px; }
+@media (max-width: 850px) {
+  .app-shell { padding: 0 22px 40px; }
+  .site-header { min-height: 72px; }
+  .game-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 0; padding-top: 18px; height: calc(100dvh - 72px); overflow: hidden; }
+  .scene-column { min-height: 0; }
+  .scene img { aspect-ratio: 4 / 3; }
+  .scene-note { display: none; }
+  .question-panel, .reveal-panel { min-height: 0; overflow-y: auto; padding: 22px 4px 28px; }
+}
+@media (max-width: 480px) {
+  .app-shell { padding: 0 14px 32px; }
+  .brand { font-size: 23px; }
+  .scene figcaption { font-size: 18px; padding: 10px 14px; }
+  .question-panel, .reveal-panel { padding-top: 16px; }
+  .question-panel h2 { font-size: 33px; margin-bottom: 24px; }
+  .option { min-height: 68px; padding: 12px; }
+}
+@media (max-width: 360px) and (max-height: 650px) {
+  .scene img { height: 185px; aspect-ratio: auto; background: #b9d8d0; }
+  .scene figcaption { font-size: 16px; padding: 7px 12px; }
+  .question-panel, .reveal-panel { padding-top: 8px; }
+  .question-panel h2 { font-size: 29px; margin-bottom: 14px; }
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape) {
+  .game-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); gap: 18px; }
+  .scene img { height: min(42vh, 230px); aspect-ratio: auto; background: #b9d8d0; }
+  .scene figcaption { font-size: 16px; padding: 7px 12px; }
+  .question-panel, .reveal-panel { padding-top: 0; }
+  .question-panel h2 { font-size: 29px; margin-bottom: 14px; }
+  .option { min-height: 58px; padding: 10px; }
+}
