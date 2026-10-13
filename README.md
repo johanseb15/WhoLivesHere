@@ -14,7 +14,13 @@ Abrí la dirección local que muestre Vite, normalmente http://127.0.0.1:5173/. 
     pnpm.cmd run build
     pnpm.cmd run preview
 
-La dirección de preview suele ser http://127.0.0.1:4173/. La instalación necesita acceso al registro de paquetes; el juego ya cargado usa solo archivos locales.
+La dirección de preview suele ser http://127.0.0.1:4173/WhoLivesHere/. La instalación necesita acceso al registro de paquetes; el juego ya cargado usa solo archivos locales. El servidor de desarrollo conserva la ruta raíz; el build y el preview usan `/WhoLivesHere/` para GitHub Pages.
+
+## Publicación en GitHub Pages
+
+El workflow `.github/workflows/deploy.yml` se ejecuta al subir cambios a `main` o manualmente desde Actions. Instala pnpm 11.9.0 y las dependencias fijadas en `pnpm-lock.yaml`, ejecuta tests, typecheck y build, y publica `dist` solo si esos pasos terminan correctamente. El job de construcción tiene permisos de lectura; el de despliegue obtiene únicamente `pages: write` e `id-token: write`.
+
+Para activarlo, en GitHub abrí **Settings → Pages → Build and deployment → Source** y elegí **GitHub Actions**. Después de que este cambio se incorpore a `main`, comprobá que el workflow termine correctamente y abrí la URL de Pages indicada por el job de despliegue. Este documento no implica que el sitio ya esté publicado.
 
 ## Cómo jugar
 

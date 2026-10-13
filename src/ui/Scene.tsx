@@ -7,7 +7,7 @@ interface SceneProps {
 export default function Scene({ src, alt, title }: SceneProps) {
   return (
     <figure className="scene">
-      <img src={src} alt={alt} />
+      <img src={`${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`} alt={alt} />
       <figcaption>{title}</figcaption>
     </figure>
   )

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "preview": "vite preview --host 127.0.0.1",
+    "preview": "vite preview --host 127.0.0.1 --base /WhoLivesHere/",
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit && vite build"
