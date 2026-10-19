@@ -1,5 +1,6 @@
 import type { AnswerMap, Home } from '../game/types'
 import { gradeAnswer, scoreHome } from '../game/scoring'
+import RevealPortrait from './RevealPortrait'
 
 interface RevealViewProps {
   home: Home
@@ -10,24 +11,38 @@ interface RevealViewProps {
 }
 
 export default function RevealView({ home, answers, homes, isLast, onNext }: RevealViewProps) {
+  const roundScore = scoreHome(homes, answers, home.id)
+
   return (
     <section className="reveal-panel" aria-labelledby="reveal-heading">
-      <p className="eyebrow">El perfil de este hogar</p>
-      <h2 id="reveal-heading" tabIndex={-1}>{home.profileName}</h2>
-      <p className="profile-quote">“{home.profile}”</p>
+      <section className="reveal-hero" aria-label={`Perfil de ${home.profileName}`}>
+        <div className="reveal-stage">
+          <div className="reveal-stage__glow" aria-hidden="true" />
+          <RevealPortrait portrait={home.revealPortrait} fallback={{ src: home.imageSrc, alt: home.imageAlt }} />
+        </div>
+        <div className="reveal-identity">
+          <p className="eyebrow">Aquí vive</p>
+          <div className="reveal-title-row">
+            <h2 id="reveal-heading" tabIndex={-1}>{home.profileName}</h2>
+            <div className="score-card" role="status" aria-label={`Puntuación de la ronda: ${roundScore} de 6`}>
+              <span>Tu puntuación</span>
+              <strong>{roundScore} <small>/ 6</small></strong>
+            </div>
+          </div>
+          <p className="profile-quote">“{home.profile}”</p>
+        </div>
+      </section>
       <p className="reveal-copy">{home.reveal}</p>
-      <div className="score-card" aria-label="Puntuación de la ronda">
-        <span>Tu puntuación</span>
-        <strong>{scoreHome(homes, answers, home.id)} / 6</strong>
-      </div>
       <ol className="answer-review">
         {home.questions.map((question) => {
           const selected = question.options.find((option) => option.id === answers[question.id])
           const grade = selected ? gradeAnswer(homes, question.id, selected.id) : null
+          const gradeLabel = grade?.points === 2 ? 'Acierto' : grade?.points === 1 ? 'Parcial' : 'Sin apoyo'
           return (
-            <li key={question.id}>
+            <li className={`answer-review__item answer-review__item--${grade?.points ?? 0}`} key={question.id}>
               <p className="review-question">{question.prompt}</p>
-              <p className="review-choice">{selected?.label} <strong>{grade?.points} / 2</strong></p>
+              <p className="review-choice"><span>{selected?.label}</span><strong>{grade?.points} <small>/ 2</small></strong></p>
+              <span className="review-grade">{gradeLabel}</span>
               <p className="review-explanation">{grade?.explanation}</p>
             </li>
           )

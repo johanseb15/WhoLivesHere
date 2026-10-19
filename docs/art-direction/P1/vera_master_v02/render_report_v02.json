@@ -1,0 +1,22 @@
+﻿{
+  "version": "0.2",
+  "status": "NO-GO artistic review",
+  "engine": "BLENDER_EEVEE",
+  "blender": "5.2.2 LTS",
+  "renders": {
+    "bust": {"file": "vera_v02_bust_review.png", "width": 900, "height": 900, "alpha": "transparent", "seconds": 20.06},
+    "full_body": {"file": "vera_v02_full_review.png", "width": 900, "height": 1200, "alpha": "transparent", "seconds": 5.62}
+  },
+  "proportions": {
+    "skull_height_units": 1.08,
+    "overall_height_units": 3.18,
+    "overall_heads_high": 2.94,
+    "target_heads_high": 2.5,
+    "within_target": false
+  },
+  "review": {
+    "improved": ["organic head profile", "eye and eyelid integration", "draped apron surface"],
+    "remaining_defects": ["bun lacks reference-like curly volume", "shoulders, hands, and shoes still read as separate pieces", "overall proportion exceeds target", "finish remains below approved reference"],
+    "recommendation": "Stop procedural detail iteration; continue with free manual Blender sculpting and an editable base mesh."
+  }
+}

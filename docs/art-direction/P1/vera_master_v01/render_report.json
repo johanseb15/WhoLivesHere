@@ -1,0 +1,35 @@
+{
+  "blender_version": "5.2.2 LTS",
+  "render_engine": "BLENDER_EEVEE",
+  "samples": 24,
+  "resolution_px": [
+    900,
+    1200
+  ],
+  "render_seconds": {
+    "front": 19.128195399884135,
+    "side": 1.9529746000189334,
+    "back": 2.0411000000312924
+  },
+  "dimensions_units": {
+    "width_x": 1.803,
+    "depth_y": 0.949,
+    "height_z": 3.21,
+    "bounds_xyz": [
+      -1.048,
+      0.755,
+      -0.517,
+      0.432,
+      0.03,
+      3.24
+    ]
+  },
+  "proportion_assumption": {
+    "head_unit_z": 1.28,
+    "total_height_in_head_units": 2.508,
+    "target": 2.5
+  },
+  "objects": 191,
+  "materials": 28,
+  "external_assets": 0
+}

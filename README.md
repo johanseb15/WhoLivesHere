@@ -34,6 +34,8 @@ Los botones admiten teclado: Tab para desplazarse y Enter o Espacio para activar
     pnpm.cmd run typecheck
     pnpm.cmd run build
 
+Las pruebas visuales de Chromium se ejecutan con `pnpm.cmd run test:visual`. La instalación del navegador, las referencias versionadas y la política para cambios artísticos se documentan en [VISUAL-QA-001](docs/VISUAL-QA-001.md).
+
 Los tests comprueban 5 hogares, 15 preguntas, 45 opciones, distribución 2/1/0, máximos de 6 y 30 puntos, entradas inválidas, clics duplicados, recorrido completo, reinicio y teclado. También verifican que las cinco rutas de ilustración apuntan a SVG locales sin referencias remotas.
 
 Para una revisión manual, completá los cinco hogares en la vista local, confirmá que cada revelación aparece antes de avanzar y que el resultado final coincide con las respuestas. En una ventana móvil, comprobá que no haya desbordamiento horizontal y que la ilustración siga visible mientras se desplazan las opciones y las explicaciones.

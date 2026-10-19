@@ -1,0 +1,37 @@
+{
+  "project": "WhoLivesHere",
+  "sprint": "Visual P1",
+  "baseline_git": "996e8b6",
+  "rules": [
+    "Todos los PNG son REFERENCIAS o CANDIDATOS. Ninguno esta aprobado para reemplazar escenas actuales.",
+    "No modificar preguntas, puntuacion, maquina de estados, spec aprobada ni escenas productivas.",
+    "Vera es canon conceptual; hoja limpia sin textos y todos los activos finales siguen pendientes.",
+    "El taller B2.0 candidatas no aprobaron chequeos de pistas; esperar validacion visual a 390px y revision 200%."
+  ],
+  "assets": [
+    {
+      "path": "docs/art-direction/P1/candidates/vera_reference_sheet_WITH_TEXT.png",
+      "source": "hoja_de_personaje_vera_exploradora_creativa.png",
+      "sha256": "6d9bf5a496227a2e89958a917ccae156c30d66b0ee544507a5f73f0e744a76e9",
+      "approval": "reference_only"
+    },
+    {
+      "path": "docs/art-direction/P1/candidates/vera_reference_board_v11.png",
+      "source": "a_clean_stylized_composite_image_with_a_character.png",
+      "sha256": "06724027bd564720d25148b709ec83beb11c12ed7733b373331dce6e43e1eb9f",
+      "approval": "reference_only"
+    },
+    {
+      "path": "docs/art-direction/P1/candidates/workshop_B20_vertical_candidate_01.png",
+      "source": "a_detailed_realistic_cozy_urban_bicycle_workshop.png",
+      "sha256": "0099ae6a30c581c1f0768f0d488ab27ab60d0ab1f44673d535d7a9b98a39a572",
+      "approval": "rejected_candidate_for_reference"
+    },
+    {
+      "path": "docs/art-direction/P1/candidates/workshop_B20_vertical_candidate_02.png",
+      "source": "a_detailed_realistic_cinematic_cozy_workshop_in.png",
+      "sha256": "e48953dc1e253285633c59482170c307bd0a7e1cce8b0bb92a755792766d0c0b",
+      "approval": "rejected_candidate_for_reference"
+    }
+  ]
+}

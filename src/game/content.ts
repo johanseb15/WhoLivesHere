@@ -11,7 +11,12 @@ function question(id: string, kind: Question['kind'], prompt: string, inputs: re
 
 export const homes: readonly Home[] = [
   {
-    id: 'H01', title: 'El taller azul', imageSrc: '/homes/h01.svg', profileName: 'Vera',
+    id: 'H01', title: 'El taller azul', imageSrc: '/homes/h01.svg',
+    revealPortrait: {
+      src: '/characters/vera-reveal.webp',
+      alt: 'Retrato ilustrado de Vera con pañuelo amarillo y delantal azul',
+    },
+    profileName: 'Vera',
     imageAlt: 'En un rincón azul hay una bicicleta a medio reparar, herramientas, un banquito con tornillos, un mapa marcado, postales de murales y muestras de color cerca de una pared pintada.',
     profile: 'Me gusta recuperar bicicletas y salir a buscar murales. Anoto sus colores en un mapa para recordar cada paseo.',
     reveal: 'La bicicleta y las herramientas explican las reparaciones. El mapa y las postales conectan los paseos con los murales; las muestras forman un diario de color.',

@@ -19,6 +19,7 @@ export interface Home {
   title: string
   imageSrc: string
   imageAlt: string
+  revealPortrait?: { src: string; alt: string }
   profileName: string
   profile: string
   reveal: string

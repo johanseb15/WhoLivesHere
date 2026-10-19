@@ -1,0 +1,43 @@
+{
+  "status": "CANDIDATES_NOT_APPROVED",
+  "guardrails": [
+    "NO overwrite of public/homes/h01.svg",
+    "NO public integration until assets approved",
+    "Vera reveal has opaque/checkerboard background, NOT transparent",
+    "Desktop candidate uses blurred padding derived from mobile, NOT true outpainting",
+    "Validate hints: bicycle pump, screws, paint patch, swatches, murals at 390px",
+    "Keep questions, scores and game machine unchanged"
+  ],
+  "files": [
+    {
+      "name": "a_clean_composite_image_with_multiple_panels_for_a.png",
+      "bytes": 3004993,
+      "sha256": "3942633b10f69ea6cf692ba50b9bba6434d9164976b6ea1a396eae07018d85bc"
+    },
+    {
+      "name": "a_high_resolution_composite_image_asset_sheet_scen.png",
+      "bytes": 3008409,
+      "sha256": "7866fd8a7e25820623034fa5321dff0c5d97405652ca9c1bb4e1c5a5612cdba3"
+    },
+    {
+      "name": "h01_desktop_derived_candidate.webp",
+      "bytes": 262006,
+      "sha256": "667891ae40d2f41ebec70198af6562f68ff629cd8d73e12aeceab5ea3e73406d"
+    },
+    {
+      "name": "h01_mobile_candidate.webp",
+      "bytes": 309560,
+      "sha256": "3cf18ac30812feded12cd9f23f3e47b223fa090b9b86329790081e1ebb8fa79c"
+    },
+    {
+      "name": "vera_reveal_opaque_reference.png",
+      "bytes": 398163,
+      "sha256": "e80c9dec459e2ed8e1244c06e3d701d9c3acdde29b45aa574012a989ed5c5b1c"
+    },
+    {
+      "name": "vera_turnaround_reference.png",
+      "bytes": 551954,
+      "sha256": "2c2d12abf313cc53b870ffd5507312d94613932b779bf4e5df34814cdb761863"
+    }
+  ]
+}

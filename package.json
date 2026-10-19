@@ -7,6 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "preview": "vite preview --host 127.0.0.1 --base /WhoLivesHere/",
     "test:run": "vitest run",
+    "test:visual": "node scripts/run-visual.mjs",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit && vite build"
   },
@@ -15,6 +16,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.7",
     "@types/node": "^26.6.5",
