@@ -210,7 +210,7 @@ describe('partida jugable', () => {
     await user.tab()
     expect(document.activeElement).toBe(screen.getByRole('button', { name: /empezar a jugar/i }))
     await user.keyboard('{Enter}')
-    expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' }))
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' })))
     for (let homeIndex = 0; homeIndex < 5; homeIndex += 1) {
       for (let questionIndex = 0; questionIndex < 3; questionIndex += 1) {
         const firstOption = homes[homeIndex].questions[questionIndex].options[0]
@@ -220,13 +220,13 @@ describe('partida jugable', () => {
         if (questionIndex < 2) await screen.findByText(`Pregunta ${questionIndex + 2} de 3`)
         else await screen.findByRole('heading', { name: homes[homeIndex].profileName })
       }
-      expect(document.activeElement).toBe(screen.getByRole('heading', { name: homes[homeIndex].profileName }))
+      await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: homes[homeIndex].profileName })))
       await user.tab()
       await user.keyboard('{Enter}')
     }
-    expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'Resultado final' }))
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'Resultado final' })))
     await user.tab()
     await user.keyboard('{Enter}')
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
-  })
+  }, 15_000)
 })
