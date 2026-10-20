@@ -85,7 +85,7 @@ h1:focus-visible, h2:focus-visible { outline: none; }
 .home-progress li.active { background: var(--cobalt); }
 .home-progress li[aria-current='step'] { background: var(--yellow); box-shadow: 0 0 14px rgba(255, 197, 49, .45); }
 .scene { position: relative; min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: #222944; box-shadow: 0 20px 48px rgba(0, 0, 0, .23); }
-.scene > img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #232b49; }
+.scene > img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; background: #232b49; }
 .scene figcaption { position: absolute; bottom: 11px; left: 12px; max-width: calc(100% - 112px); padding: 7px 12px; border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius-pill); background: rgba(12, 15, 29, .84); color: var(--text); font-family: var(--display); font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
 .scene-zoom { position: absolute; right: 10px; bottom: 11px; min-height: 37px; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border: 1px solid rgba(255, 255, 255, .2); border-radius: var(--radius-pill); background: rgba(12, 15, 29, .88); color: var(--text); font-size: 12px; font-weight: 800; }
 .scene-zoom:hover { border-color: var(--yellow); color: var(--yellow); }
