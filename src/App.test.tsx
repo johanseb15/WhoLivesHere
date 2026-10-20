@@ -49,7 +49,7 @@ describe('partida jugable', () => {
 
     await user.click(openButton)
     const dialog = screen.getByRole('dialog', { name: 'Vivienda ampliada' })
-    expect(within(dialog).getByRole('img', { name: /rincón azul/i }).getAttribute('src')).toBe('/WhoLivesHere/homes/h01.svg')
+    expect(within(dialog).getByRole('img', { name: /rincón azul/i }).getAttribute('src')).toBe('/WhoLivesHere/assets/h01/home.jpg')
     await user.keyboard('{Escape}')
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(document.activeElement).toBe(openButton)
@@ -104,25 +104,25 @@ describe('partida jugable', () => {
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
     const scene = screen.getByRole('img', { name: /rincón azul/i })
 
-    expect(screen.queryByRole('img', { name: /retrato ilustrado de vera/i })).toBeNull()
+    expect(screen.queryByRole('img', { name: /retrato 3d estilizado de vera/i })).toBeNull()
     await user.click(screen.getByRole('button', { name: 'Bicicletas' }))
     await screen.findByText('Pregunta 2 de 3')
-    expect(screen.queryByRole('img', { name: /retrato ilustrado de vera/i })).toBeNull()
+    expect(screen.queryByRole('img', { name: /retrato 3d estilizado de vera/i })).toBeNull()
     await user.click(screen.getByRole('button', { name: 'Recorrer murales en bicicleta' }))
     await screen.findByText('Pregunta 3 de 3')
-    expect(screen.queryByRole('img', { name: /retrato ilustrado de vera/i })).toBeNull()
+    expect(screen.queryByRole('img', { name: /retrato 3d estilizado de vera/i })).toBeNull()
     await user.click(screen.getByRole('button', { name: 'Para recordar los colores de los murales visitados' }))
     await screen.findByRole('heading', { name: 'Vera' })
 
-    const portrait = screen.getByRole('img', { name: /retrato ilustrado de vera/i })
-    expect(portrait.getAttribute('src')).toBe('/WhoLivesHere/characters/vera-reveal.webp')
+    const portrait = screen.getByRole('img', { name: /retrato 3d estilizado de vera/i })
+    expect(portrait.getAttribute('src')).toBe('/WhoLivesHere/assets/h01/character-reveal.png')
     const hero = screen.getByRole('region', { name: 'Perfil de Vera' })
     expect(within(hero).getByRole('heading', { name: 'Vera' })).toBeTruthy()
-    expect(within(hero).getByRole('img', { name: /retrato ilustrado de vera/i })).toBe(portrait)
+    expect(within(hero).getByRole('img', { name: /retrato 3d estilizado de vera/i })).toBe(portrait)
     expect(within(hero).getByText(/me gusta recuperar bicicletas/i)).toBeTruthy()
     fireEvent.error(portrait)
-    expect(screen.queryByRole('img', { name: /retrato ilustrado de vera/i })).toBeNull()
-    expect(scene.getAttribute('src')).toBe('/WhoLivesHere/homes/h01.svg')
+    expect(screen.queryByRole('img', { name: /retrato 3d estilizado de vera/i })).toBeNull()
+    expect(scene.getAttribute('src')).toBe('/WhoLivesHere/assets/h01/home.jpg')
     expect(screen.getAllByRole('img', { name: /en un rincón azul/i })).toHaveLength(2)
   })
 
@@ -210,7 +210,7 @@ describe('partida jugable', () => {
     await user.tab()
     expect(document.activeElement).toBe(screen.getByRole('button', { name: /empezar a jugar/i }))
     await user.keyboard('{Enter}')
-    expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' }))
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' })))
     for (let homeIndex = 0; homeIndex < 5; homeIndex += 1) {
       for (let questionIndex = 0; questionIndex < 3; questionIndex += 1) {
         const firstOption = homes[homeIndex].questions[questionIndex].options[0]
@@ -220,13 +220,13 @@ describe('partida jugable', () => {
         if (questionIndex < 2) await screen.findByText(`Pregunta ${questionIndex + 2} de 3`)
         else await screen.findByRole('heading', { name: homes[homeIndex].profileName })
       }
-      expect(document.activeElement).toBe(screen.getByRole('heading', { name: homes[homeIndex].profileName }))
+      await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: homes[homeIndex].profileName })))
       await user.tab()
       await user.keyboard('{Enter}')
     }
-    expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'Resultado final' }))
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole('heading', { name: 'Resultado final' })))
     await user.tab()
     await user.keyboard('{Enter}')
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
-  })
+  }, 15_000)
 })

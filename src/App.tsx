@@ -47,7 +47,7 @@ export default function App() {
     <div className="app-shell">
       <SiteHeader />
       <main className={`game-layout${state.phase === 'revelacion' ? ' game-layout--reveal' : ''}`}>
-        <section className="scene-column" aria-label="Hogar ilustrado">
+        <section className="scene-column" aria-label="Imagen de la vivienda">
           <div className="round-meta">
             <span className="round-label">Hogar {state.homeIndex + 1} de 5</span>
             <ol className="home-progress" aria-label="Progreso de hogares">

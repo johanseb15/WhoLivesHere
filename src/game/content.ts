@@ -1,4 +1,5 @@
 import type { Home, Option, Points, Question } from './types'
+import { withApprovedArt } from './visualAssets'
 
 type OptionInput = readonly [key: string, label: string, points: Points, explanation: string]
 
@@ -9,7 +10,7 @@ function question(id: string, kind: Question['kind'], prompt: string, inputs: re
   return { id, kind, prompt, options }
 }
 
-export const homes: readonly Home[] = [
+const authoredHomes: readonly Home[] = [
   {
     id: 'H01', title: 'El taller azul', imageSrc: '/homes/h01.svg',
     revealPortrait: {
@@ -131,3 +132,5 @@ export const homes: readonly Home[] = [
     ],
   },
 ]
+
+export const homes: readonly Home[] = withApprovedArt(authoredHomes)
