@@ -37,14 +37,14 @@ describe('máquina de juego', () => {
     expect(next).toMatchObject({ phase: 'pregunta', homeIndex: 1, questionIndex: 0 })
   })
 
-  it('completa cinco hogares, muestra resultado y reinicia', () => {
+  it('completa veinte hogares, muestra resultado y reinicia', () => {
     let state = createInitialState()
-    for (let homeIndex = 0; homeIndex < 5; homeIndex += 1) {
+    for (let homeIndex = 0; homeIndex < 20; homeIndex += 1) {
       state = finishHome(state)
       expect(state).toMatchObject({ phase: 'revelacion', homeIndex })
-      if (homeIndex < 4) state = transition(state, { type: 'SIGUIENTE' }, homes)
+      if (homeIndex < 19) state = transition(state, { type: 'SIGUIENTE' }, homes)
     }
-    expect(Object.keys(state.answers)).toHaveLength(15)
+    expect(Object.keys(state.answers)).toHaveLength(60)
     expect(transition(state, { type: 'SIGUIENTE' }, homes)).toBe(state)
     state = transition(state, { type: 'VER_RESULTADO' }, homes)
     expect(state.phase).toBe('resultado')

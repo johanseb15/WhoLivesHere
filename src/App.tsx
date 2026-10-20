@@ -49,10 +49,10 @@ export default function App() {
       <main className={`game-layout${state.phase === 'revelacion' ? ' game-layout--reveal' : ''}`}>
         <section className="scene-column" aria-label="Hogar ilustrado">
           <div className="round-meta">
-            <span className="round-label">Hogar {state.homeIndex + 1} de 5</span>
-            <ol className="home-progress" aria-label="Progreso de hogares">
-              {homes.map((item, index) => <li key={item.id} className={index <= state.homeIndex ? 'active' : ''} aria-current={index === state.homeIndex ? 'step' : undefined}><span className="sr-only">Hogar {index + 1}{index === state.homeIndex ? ': actual' : index < state.homeIndex ? ': completado' : ': pendiente'}</span></li>)}
-            </ol>
+            <span className="round-label">Hogar {state.homeIndex + 1} de {homes.length}</span>
+            <div className="home-progress" role="progressbar" aria-label="Progreso de hogares" aria-valuemin={0} aria-valuemax={homes.length} aria-valuenow={state.homeIndex + 1}>
+              <span style={{ width: `${((state.homeIndex + 1) / homes.length) * 100}%` }} />
+            </div>
           </div>
           <Scene src={home.imageSrc} alt={home.imageAlt} title={home.title} showTitle={state.phase === 'revelacion'} />
           {state.phase === 'pregunta' && <p className="scene-note">Mirá con atención: cada objeto puede contar una historia.</p>}

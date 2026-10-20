@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#e5e9ed"/><stop offset="1" stop-color="#fff8ea"/></linearGradient>
+    <linearGradient id="table" x2="0" y2="1"><stop stop-color="#607589"/><stop offset="1" stop-color="#3a4347"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#24353b" flood-opacity=".16"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#wall)"/>
+  <path d="M0 0h800v60H0z" fill="#607589" opacity=".16"/>
+  <path d="M18 37h764M18 520h764" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+  <path d="M0 523h800v77H0z" fill="url(#table)"/>
+  <path d="M0 519h800" stroke="#fff5df" stroke-opacity=".7" stroke-width="13"/>
+  <path d="M31 114q0-45 45-45h648q45 0 45 45v348q0 45-45 45H76q-45 0-45-45z" fill="#fff9ed" stroke="#607589" stroke-width="8" filter="url(#shadow)"/>
+  <path d="M50 119h700" stroke="#607589" stroke-opacity=".2" stroke-width="3"/>
+  <circle cx="98" cy="103" r="8" fill="#607589"/><circle cx="400" cy="103" r="8" fill="#607589"/><circle cx="702" cy="103" r="8" fill="#607589"/>
+  <path d="M87 118l26 24M389 118l26 24M691 118l26 24" stroke="#607589" stroke-opacity=".25" stroke-width="4"/>
+  <g filter="url(#shadow)"><g transform="rotate(-5 149 223)">
+      <rect x="74" y="158" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="84" y="168" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="150" y="243" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">🧸</text>
+      
+      
+      <path d="M102 271h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g>
+<g transform="rotate(4 371 223)">
+      <rect x="296" y="158" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="306" y="168" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="372" y="243" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">🛞</text>
+      
+      
+      <path d="M324 271h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g>
+<g transform="rotate(-3 593 223)">
+      <rect x="518" y="158" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="528" y="168" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="594" y="243" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">🔧</text>
+      
+      
+      <path d="M546 271h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g>
+<g transform="rotate(3 149 377)">
+      <rect x="74" y="312" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="84" y="322" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="150" y="397" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">📷</text>
+      
+      
+      <path d="M102 425h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g>
+<g transform="rotate(-4 371 377)">
+      <rect x="296" y="312" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="306" y="322" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="372" y="397" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">🧩</text>
+      
+      
+      <path d="M324 425h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g>
+<g transform="rotate(5 593 377)">
+      <rect x="518" y="312" width="153" height="132" rx="13" fill="#fffdf6" stroke="#607589" stroke-opacity=".32" stroke-width="3"/>
+      <rect x="528" y="322" width="133" height="90" rx="8" fill="#e5e9ed" opacity=".72"/>
+      <text x="594" y="397" text-anchor="middle" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="64">🎁</text>
+      
+      
+      <path d="M546 425h97" stroke="#607589" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    </g></g>
+  <path d="M75 481h650" stroke="#607589" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="82" cy="557" r="8" fill="#ffe2a7" opacity=".65"/><circle cx="121" cy="562" r="5" fill="#ffe2a7" opacity=".65"/>
+  <path d="M618 560q29-27 62 0t63 0" stroke="#ffe2a7" stroke-opacity=".55" stroke-width="5" fill="none"/>
+</svg>

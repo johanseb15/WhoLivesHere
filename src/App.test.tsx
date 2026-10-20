@@ -27,16 +27,18 @@ describe('partida jugable', () => {
     const user = userEvent.setup()
     render(<App />)
 
-    expect(screen.getByRole('heading', { name: /cinco hogares,?\s*cinco misterios/i })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: /20 hogares,?\s*20 misterios/i })).toBeTruthy()
+    expect(screen.getByText(/60 preguntas.*120 puntos/i)).toBeTruthy()
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
     expect(screen.queryByText('Vera')).toBeNull()
     expect(screen.queryByText('Pregunta 1 de 3')).toBeNull()
 
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
-    expect(screen.getByText('Hogar 1 de 5')).toBeTruthy()
+    expect(screen.getByText('Hogar 1 de 20')).toBeTruthy()
     expect(screen.getByText('Pregunta 1 de 3')).toBeTruthy()
     expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' }))
-    expect(screen.getByRole('list', { name: 'Progreso de hogares' }).querySelectorAll('li')).toHaveLength(5)
+    expect(screen.getByRole('progressbar', { name: 'Progreso de hogares' }).getAttribute('aria-valuemax')).toBe('20')
+    expect(screen.getByRole('progressbar', { name: 'Progreso de hogares' }).getAttribute('aria-valuenow')).toBe('1')
     expect(screen.getByRole('img', { name: 'Progreso: pregunta 1 de 3' })).toBeTruthy()
   })
 
@@ -59,7 +61,7 @@ describe('partida jugable', () => {
     const user = userEvent.setup()
     render(<App />)
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
-    expect(screen.getByText('Hogar 1 de 5')).toBeTruthy()
+    expect(screen.getByText('Hogar 1 de 20')).toBeTruthy()
     expect(screen.getByText('Pregunta 1 de 3')).toBeTruthy()
     expect(screen.getByRole('group', { name: /opciones/i }).querySelectorAll('button')).toHaveLength(3)
     expect(screen.queryByText('Vera')).toBeNull()
@@ -93,7 +95,7 @@ describe('partida jugable', () => {
     expect(screen.getByRole('status', { name: 'Puntuación de la ronda: 6 de 6' })).toBeTruthy()
     expect(screen.getByText(/bicicleta a medio reparar/i)).toBeTruthy()
     await user.click(screen.getByRole('button', { name: 'Siguiente hogar' }))
-    expect(screen.getByText('Hogar 2 de 5')).toBeTruthy()
+    expect(screen.getByText('Hogar 2 de 20')).toBeTruthy()
     expect(screen.getByText('Pregunta 1 de 3')).toBeTruthy()
   })
 
@@ -126,18 +128,19 @@ describe('partida jugable', () => {
     expect(screen.getAllByRole('img', { name: /en un rincón azul/i })).toHaveLength(2)
   })
 
-  it('recorre los cinco hogares y termina con 30 puntos', async () => {
+  it('recorre los veinte hogares y termina con 120 puntos', async () => {
     const user = userEvent.setup()
     render(<App />)
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
-    for (let index = 0; index < 5; index += 1) {
-      expect(screen.getByText('Hogar ' + (index + 1) + ' de 5')).toBeTruthy()
+    for (let index = 0; index < 20; index += 1) {
+      expect(screen.getByText('Hogar ' + (index + 1) + ' de 20')).toBeTruthy()
       await answerHome(user, index, [2, 2, 2])
       expect(screen.getByRole('status', { name: 'Puntuación de la ronda: 6 de 6' })).toBeTruthy()
-      await user.click(screen.getByRole('button', { name: index === 4 ? 'Ver resultado final' : 'Siguiente hogar' }))
+      await user.click(screen.getByRole('button', { name: index === 19 ? 'Ver resultado final' : 'Siguiente hogar' }))
     }
     expect(screen.getByRole('heading', { name: 'Resultado final' })).toBeTruthy()
-    expect(screen.getByRole('progressbar', { name: 'Puntaje total de la partida' }).getAttribute('aria-valuenow')).toBe('30')
+    expect(screen.getByRole('progressbar', { name: 'Puntaje total de la partida' }).getAttribute('aria-valuenow')).toBe('120')
+    expect(screen.getByRole('progressbar', { name: 'Puntaje total de la partida' }).getAttribute('aria-valuemax')).toBe('120')
     expect(screen.getByRole('heading', { name: /hogares completados/i })).toBeTruthy()
     for (const home of homes) {
       expect(screen.getByText(home.profileName)).toBeTruthy()
@@ -146,20 +149,20 @@ describe('partida jugable', () => {
     await user.click(screen.getByRole('button', { name: 'Jugar otra vez' }))
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
-    expect(screen.getByText('Hogar 1 de 5')).toBeTruthy()
+    expect(screen.getByText('Hogar 1 de 20')).toBeTruthy()
     expect(screen.getByText('Pregunta 1 de 3')).toBeTruthy()
-  })
+  }, 30000)
 
   it('suma una mezcla conocida de 2/1/0 sin repetir preguntas', async () => {
     const user = userEvent.setup()
     render(<App />)
-    for (let index = 0; index < 5; index += 1) {
+    for (let index = 0; index < 20; index += 1) {
       await answerHome(user, index, [2, 1, 0])
       expect(screen.getByRole('status', { name: 'Puntuación de la ronda: 3 de 6' })).toBeTruthy()
-      await user.click(screen.getByRole('button', { name: index === 4 ? 'Ver resultado final' : 'Siguiente hogar' }))
+      await user.click(screen.getByRole('button', { name: index === 19 ? 'Ver resultado final' : 'Siguiente hogar' }))
     }
-    expect(screen.getByRole('progressbar', { name: 'Puntaje total de la partida' }).getAttribute('aria-valuenow')).toBe('15')
-  })
+    expect(screen.getByRole('progressbar', { name: 'Puntaje total de la partida' }).getAttribute('aria-valuenow')).toBe('60')
+  }, 30000)
 
   it('empieza de cero tras montar de nuevo la aplicación', async () => {
     const user = userEvent.setup()
@@ -170,7 +173,7 @@ describe('partida jugable', () => {
     render(<App />)
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
     await user.click(screen.getByRole('button', { name: /empezar a jugar/i }))
-    expect(screen.getByText('Hogar 1 de 5')).toBeTruthy()
+    expect(screen.getByText('Hogar 1 de 20')).toBeTruthy()
     expect(screen.getByText('Pregunta 1 de 3')).toBeTruthy()
   })
 
@@ -211,7 +214,7 @@ describe('partida jugable', () => {
     expect(document.activeElement).toBe(screen.getByRole('button', { name: /empezar a jugar/i }))
     await user.keyboard('{Enter}')
     expect(document.activeElement).toBe(screen.getByRole('heading', { name: '¿Qué suele reparar quien vive aquí?' }))
-    for (let homeIndex = 0; homeIndex < 5; homeIndex += 1) {
+    for (let homeIndex = 0; homeIndex < 20; homeIndex += 1) {
       for (let questionIndex = 0; questionIndex < 3; questionIndex += 1) {
         const firstOption = homes[homeIndex].questions[questionIndex].options[0]
         await user.tab()
@@ -228,5 +231,5 @@ describe('partida jugable', () => {
     await user.tab()
     await user.keyboard('{Enter}')
     expect(screen.getByRole('button', { name: /empezar a jugar/i })).toBeTruthy()
-  })
+  }, 30000)
 })

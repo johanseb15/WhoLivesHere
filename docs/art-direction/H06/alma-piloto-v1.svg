@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title description">
+  <title id="title">El observatorio de ventana de Alma</title>
+  <desc id="description">Una habitación al anochecer con ventana, telescopio, calendario, cámara, cuaderno y lámpara roja.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a5bfbd"/><stop offset="1" stop-color="#d9d8c1"/></linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#172f49"/><stop offset="1" stop-color="#476780"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bb9472"/><stop offset="1" stop-color="#8e674f"/></linearGradient>
+    <linearGradient id="desktop" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e3b580"/><stop offset="1" stop-color="#b7805d"/></linearGradient>
+    <radialGradient id="moonGlow"><stop stop-color="#fff6d4" stop-opacity=".58"/><stop offset="1" stop-color="#fff6d4" stop-opacity="0"/></radialGradient>
+    <radialGradient id="lampGlow"><stop stop-color="#e96255" stop-opacity=".34"/><stop offset="1" stop-color="#e96255" stop-opacity="0"/></radialGradient>
+    <clipPath id="windowClip"><rect x="74" y="67" width="304" height="283" rx="3"/></clipPath>
+    <clipPath id="calendarClip"><rect x="569" y="102" width="155" height="174" rx="4"/></clipPath>
+    <filter id="softShadow" x="-30%" y="-40%" width="170%" height="190%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#263e43" flood-opacity=".22"/></filter>
+  </defs>
+
+  <!-- Architecture and evening light -->
+  <g id="room">
+    <rect width="800" height="600" fill="url(#wall)"/>
+    <path d="M0 365h800v235H0z" fill="url(#floor)"/>
+    <path d="M0 363h800" stroke="#557470" stroke-width="8"/>
+    <path d="M0 385h800M0 534h800" stroke="#725d51" stroke-opacity=".16" stroke-width="3"/>
+    <path d="M120 365 5 600M366 365 314 600M599 365 665 600" stroke="#725d51" stroke-opacity=".15" stroke-width="3"/>
+    <path d="M408 103h117M413 109h105" stroke="#f1e1bd" stroke-opacity=".46" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- The window is the cool light source and the telescope's destination. -->
+  <g id="window" filter="url(#softShadow)">
+    <rect x="59" y="52" width="334" height="314" rx="11" fill="#eadfc5" stroke="#375e65" stroke-width="10"/>
+    <g clip-path="url(#windowClip)">
+      <rect x="74" y="67" width="304" height="283" fill="url(#sky)"/>
+      <circle cx="242" cy="143" r="104" fill="url(#moonGlow)"/>
+      <circle cx="242" cy="143" r="37" fill="#fff2cb"/>
+      <circle cx="229" cy="134" r="6" fill="#dfd4ae" opacity=".6"/>
+      <circle cx="254" cy="153" r="8" fill="#dfd4ae" opacity=".54"/>
+      <circle cx="246" cy="125" r="4" fill="#dfd4ae" opacity=".52"/>
+      <g fill="#f8eccc">
+        <circle cx="115" cy="111" r="3"/><circle cx="151" cy="177" r="2"/><circle cx="337" cy="112" r="3"/><circle cx="326" cy="202" r="2"/><circle cx="192" cy="92" r="2"/>
+      </g>
+      <path d="M96 231c26-18 54-13 70 1 20-11 40-7 50 5M281 223c18-9 38-3 49 8 16-8 29-7 42 0" fill="none" stroke="#a9bec4" stroke-opacity=".54" stroke-width="10" stroke-linecap="round"/>
+      <path d="M74 315c39-28 86-31 128-16 37-36 79-29 112-5 31-13 47-13 64-3v59H74z" fill="#294b5c"/>
+      <path d="M77 342c45-14 91-15 133-3 38-24 79-18 115-4 19-5 37-7 53-2v21H77z" fill="#1d3e50"/>
+      <path d="M111 294v48m0-31-14-15m14 19 15-18M339 296v47m0-25-13-13m13 9 15-17" stroke="#183a47" stroke-width="7" stroke-linecap="round"/>
+    </g>
+    <path d="M225 60v297M67 277h319" stroke="#e8dec8" stroke-width="13"/>
+    <path d="M225 61v296M67 277h319" stroke="#52777d" stroke-width="3" opacity=".5"/>
+    <path d="M51 358h351v16H51z" fill="#e8d7b7" stroke="#43696b" stroke-width="5"/>
+    <path d="M49 48h351" stroke="#2f5961" stroke-width="8" stroke-linecap="round"/>
+    <path d="M77 54c-27 50-14 135-11 188l18 22 18-18c-3-99 17-148 27-192z" fill="#cf9d82" opacity=".9"/>
+    <path d="M365 54c25 54 13 136 9 187l-18 21-17-17c3-98-14-149-24-191z" fill="#cf9d82" opacity=".9"/>
+    <path d="M92 54c-13 57-21 118-12 185M350 54c15 58 21 119 12 185" stroke="#f2d4b5" stroke-width="5" opacity=".64" fill="none"/>
+  </g>
+
+  <!-- A wall calendar: the repeated disks are date marks and changing phases. -->
+  <g id="phase-calendar" filter="url(#softShadow)">
+    <rect x="564" y="98" width="165" height="184" rx="7" fill="#fff5df" stroke="#526e6a" stroke-width="6"/>
+    <g clip-path="url(#calendarClip)"><rect x="569" y="102" width="155" height="39" fill="#6a8d8a"/></g>
+    <path d="M586 92v20M707 92v20" stroke="#304d54" stroke-width="9" stroke-linecap="round"/>
+    <path d="M579 156h137M579 193h137M579 230h137M605 149v121M644 149v121M683 149v121" stroke="#a6b6a7" stroke-width="2"/>
+    <g fill="#314f62">
+      <circle cx="588" cy="168" r="11"/><circle cx="626" cy="168" r="11"/><circle cx="665" cy="168" r="11"/><circle cx="702" cy="168" r="11"/>
+      <circle cx="588" cy="209" r="11"/><circle cx="626" cy="209" r="11"/><circle cx="665" cy="209" r="11"/><circle cx="702" cy="209" r="11"/>
+      <circle cx="588" cy="247" r="11"/><circle cx="626" cy="247" r="11"/><circle cx="665" cy="247" r="11"/><circle cx="702" cy="247" r="11"/>
+    </g>
+    <g fill="#f3dfaa">
+      <path d="M588 157a11 11 0 0 1 0 22c-5-4-5-18 0-22z"/>
+      <path d="M626 157a11 11 0 0 1 0 22 11 11 0 0 0 0-22z"/>
+      <circle cx="665" cy="168" r="10"/>
+      <path d="M702 157a11 11 0 0 0 0 22c5-4 5-18 0-22z"/>
+      <path d="M588 198a11 11 0 0 1 0 22c-5-4-5-18 0-22z"/>
+      <path d="M626 198a11 11 0 0 1 0 22 11 11 0 0 0 0-22z"/>
+      <circle cx="665" cy="209" r="10"/>
+      <path d="M702 198a11 11 0 0 0 0 22c5-4 5-18 0-22z"/>
+      <path d="M588 236a11 11 0 0 1 0 22c-5-4-5-18 0-22z"/>
+      <path d="M626 236a11 11 0 0 1 0 22 11 11 0 0 0 0-22z"/>
+      <circle cx="665" cy="247" r="10"/>
+      <path d="M702 236a11 11 0 0 0 0 22c5-4 5-18 0-22z"/>
+    </g>
+    <g fill="#f5ead0"><circle cx="592" cy="119" r="3"/><circle cx="607" cy="119" r="3"/><circle cx="622" cy="119" r="3"/></g>
+  </g>
+
+  <!-- Low furniture creates a middle plane behind the working table. -->
+  <g id="furniture">
+    <path d="M486 321h292v139H486z" fill="#567476" stroke="#334f57" stroke-width="7"/>
+    <path d="M472 311h314v23H472z" fill="#c9956f" stroke="#5b6a63" stroke-width="5"/>
+    <path d="M502 351h117v86H502zM641 351h117v86H641z" fill="#79918b" stroke="#355960" stroke-width="5"/>
+    <circle cx="607" cy="395" r="5" fill="#e5c787"/><circle cx="653" cy="395" r="5" fill="#e5c787"/>
+    <path d="M505 463h265v25H505z" fill="#4b6668"/>
+  </g>
+
+  <!-- Telescope body aims diagonally toward the visible moon. -->
+  <g id="telescope" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="347" cy="533" rx="126" ry="25" fill="#425357" opacity=".17"/>
+    <path d="M344 357 283 538M344 357l85 181M344 357l-3 176" stroke="#344c53" stroke-width="13" fill="none"/>
+    <path d="M344 357 283 538M344 357l85 181M344 357l-3 176" stroke="#789295" stroke-width="4" fill="none"/>
+    <path d="M267 539h34M326 537h31M413 539h34" stroke="#344c53" stroke-width="11"/>
+    <circle cx="344" cy="358" r="21" fill="#e4b680" stroke="#304a51" stroke-width="7"/>
+    <g transform="rotate(-43 342 309)" filter="url(#softShadow)">
+      <rect x="315" y="174" width="54" height="241" rx="12" fill="#4e7680" stroke="#2a4852" stroke-width="8"/>
+      <path d="M321 184h42v26h-42z" fill="#e6bf82"/>
+      <path d="M317 218h50M317 355h50" stroke="#9ab7b5" stroke-width="5"/>
+      <rect x="309" y="171" width="66" height="22" rx="7" fill="#d1a474" stroke="#304b50" stroke-width="5"/>
+      <rect x="324" y="403" width="36" height="26" rx="4" fill="#314c55"/>
+    </g>
+    <path d="M378 316l31 21-20 29" stroke="#344c53" stroke-width="9" fill="none"/>
+    <rect x="398" y="331" width="25" height="14" rx="3" fill="#e2b57d" stroke="#344c53" stroke-width="4" transform="rotate(35 410 338)"/>
+  </g>
+
+  <!-- Foreground workspace. The red light stays local; no white work lamp. -->
+  <g id="desk">
+    <ellipse cx="588" cy="552" rx="206" ry="30" fill="#473d39" opacity=".18"/>
+    <path d="M390 435h410v37H390z" fill="url(#desktop)" stroke="#6b574a" stroke-width="6"/>
+    <path d="M410 473h27v109h-27zM753 473h26v109h-26z" fill="#7e5d4b" stroke="#5c4f47" stroke-width="5"/>
+    <path d="M402 433h398" stroke="#f0d0a0" stroke-width="6"/>
+    <path d="M448 471h298" stroke="#805e4c" stroke-width="5" opacity=".5"/>
+  </g>
+
+  <!-- Notebook: observational sketches, with weather on one page. -->
+  <g id="observation-notebook" transform="rotate(-7 537 410)" filter="url(#softShadow)">
+    <path d="M443 364q48-8 94 8 43-12 90-1v75q-46-10-90 3-47-12-94-4z" fill="#f8efd9" stroke="#576c68" stroke-width="5"/>
+    <path d="M537 373v74" stroke="#9c9d87" stroke-width="4"/>
+    <path d="M454 381h66M454 433h64M552 390h59M552 434h58" stroke="#d5c9aa" stroke-width="2"/>
+    <circle cx="471" cy="402" r="12" fill="#607a89"/><path d="M471 390a12 12 0 0 1 0 24 12 12 0 0 0 0-24z" fill="#e0cb99"/>
+    <circle cx="507" cy="402" r="12" fill="#e0cb99" stroke="#607a89" stroke-width="2"/>
+    <path d="M555 414c4-9 15-10 21-2 8-5 20 1 20 10h-41c-4-3-3-6 0-8zM590 398c3-6 11-7 15-2 5-3 10 0 12 5" fill="none" stroke="#718e9c" stroke-width="5" stroke-linecap="round"/>
+    <path d="M560 430l7 3m15-3 7 3m14-5 7 3" stroke="#839c9a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Camera sits on the sill of the desk, ready for the view outside. -->
+  <g id="camera" filter="url(#softShadow)">
+    <path d="M643 383h100v60H643z" fill="#334b53" stroke="#263e47" stroke-width="6"/>
+    <path d="M658 383v-12h28l8 12M711 382v-11h22v11" fill="#334b53" stroke="#263e47" stroke-width="5"/>
+    <circle cx="693" cy="412" r="25" fill="#d5ae78" stroke="#263e47" stroke-width="6"/>
+    <circle cx="693" cy="412" r="16" fill="#587b88" stroke="#e7d4ad" stroke-width="5"/>
+    <circle cx="689" cy="406" r="5" fill="#d8e7dc" opacity=".78"/>
+    <circle cx="728" cy="395" r="4" fill="#e9c88a"/>
+    <path d="M645 407h20" stroke="#9ab0aa" stroke-width="4"/>
+  </g>
+
+  <!-- A small shielded red lamp beside the telescope and camera. -->
+  <g id="red-lamp">
+    <circle cx="622" cy="391" r="99" fill="url(#lampGlow)"/>
+    <path d="M620 374v38" stroke="#344c54" stroke-width="8" stroke-linecap="round"/>
+    <path d="M603 413h35" stroke="#344c54" stroke-width="8" stroke-linecap="round"/>
+    <path d="M606 367q14-20 28 0l8 17h-44z" fill="#c8534e" stroke="#783f43" stroke-width="5"/>
+    <path d="M609 379h22" stroke="#ffaaa0" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="620" cy="421" rx="36" ry="9" fill="#d7675c" opacity=".3"/>
+  </g>
+
+  <g id="final-details" stroke-linecap="round">
+    <path d="M100 376h77M101 383h52" stroke="#5b7775" stroke-width="3" opacity=".4"/>
+    <path d="M142 479c22-11 49-6 63 10 26-10 48-3 60 11" stroke="#ecd5ab" stroke-width="5" fill="none" opacity=".43"/>
+    <path d="M738 295c15-9 29-7 40 5" stroke="#56716b" stroke-width="4" fill="none" opacity=".6"/>
+  </g>
+</svg>

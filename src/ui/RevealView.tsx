@@ -16,9 +16,9 @@ export default function RevealView({ home, answers, homes, isLast, onNext }: Rev
   return (
     <section className="reveal-panel" aria-labelledby="reveal-heading">
       <section className="reveal-hero" aria-label={`Perfil de ${home.profileName}`}>
-        <div className="reveal-stage">
+        <div className={`reveal-stage${home.revealPortrait ? '' : ' reveal-stage--scene'}`}>
           <div className="reveal-stage__glow" aria-hidden="true" />
-          <RevealPortrait portrait={home.revealPortrait} fallback={{ src: home.imageSrc, alt: home.imageAlt }} />
+          <RevealPortrait key={home.id} portrait={home.revealPortrait} fallback={{ src: home.imageSrc, alt: home.imageAlt }} />
         </div>
         <div className="reveal-identity">
           <p className="eyebrow">Aquí vive</p>

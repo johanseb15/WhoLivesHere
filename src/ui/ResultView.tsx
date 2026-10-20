@@ -9,24 +9,25 @@ interface ResultViewProps {
 }
 
 export default function ResultView({ total, homes, answers, onRestart }: ResultViewProps) {
-  const scoreOffset = 326.7 * (1 - total / 30)
+  const maxScore = homes.length * 6
+  const scoreOffset = 326.7 * (1 - total / maxScore)
 
   return (
     <main className="result-screen" aria-labelledby="result-heading">
       <section className="result-summary">
         <span className="game-kicker">Partida completa</span>
         <h1 id="result-heading" tabIndex={-1}>Resultado final</h1>
-        <p className="result-subtitle">Cinco hogares explorados. ¿Qué tan bien leíste sus pistas?</p>
+        <p className="result-subtitle">Veinte hogares explorados. ¿Qué tan bien leíste sus pistas?</p>
         <div className="result-score-layout">
-          <div className="result-ring" role="progressbar" aria-label="Puntaje total de la partida" aria-valuemin={0} aria-valuemax={30} aria-valuenow={total}>
+          <div className="result-ring" role="progressbar" aria-label="Puntaje total de la partida" aria-valuemin={0} aria-valuemax={maxScore} aria-valuenow={total}>
             <svg viewBox="0 0 120 120" aria-hidden="true">
               <circle className="result-ring__track" cx="60" cy="60" r="52" />
               <circle className="result-ring__value" cx="60" cy="60" r="52" style={{ strokeDashoffset: scoreOffset }} />
             </svg>
-            <span aria-hidden="true"><strong>{total}</strong><small>de 30</small></span>
+            <span aria-hidden="true"><strong>{total}</strong><small>de {maxScore}</small></span>
           </div>
           <div className="result-score-copy">
-            <strong>{total >= 24 ? '¡Leíste un montón de pistas!' : total >= 15 ? 'Buen ojo para los detalles.' : 'Cada hogar es una nueva oportunidad.'}</strong>
+            <strong>{total >= maxScore * .8 ? '¡Leíste un montón de pistas!' : total >= maxScore * .5 ? 'Buen ojo para los detalles.' : 'Cada hogar es una nueva oportunidad.'}</strong>
             <span>Tu puntaje se calcula con las respuestas exactas y plausibles de cada ronda.</span>
           </div>
         </div>
@@ -34,7 +35,7 @@ export default function ResultView({ total, homes, answers, onRestart }: ResultV
 
       <section className="completed-section" aria-labelledby="completed-heading">
         <div className="section-heading">
-          <span className="section-number">05 / 05</span>
+          <span className="section-number">{String(homes.length).padStart(2, '0')} / {String(homes.length).padStart(2, '0')}</span>
           <h2 id="completed-heading">Hogares completados</h2>
         </div>
         <ol className="completed-homes">

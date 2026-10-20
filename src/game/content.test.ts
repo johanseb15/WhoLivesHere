@@ -22,13 +22,14 @@ const expectedAnswers = [
 ] as const
 
 describe('contenido aprobado', () => {
-  it('contiene cinco hogares, quince preguntas y cuarenta y cinco opciones', () => {
-    expect(homes.map((home) => home.id)).toEqual(['H01', 'H02', 'H03', 'H04', 'H05'])
-    expect(homes.flatMap((home) => home.questions)).toHaveLength(15)
-    expect(homes.flatMap((home) => home.questions.flatMap((question) => question.options))).toHaveLength(45)
+  it('contiene veinte hogares únicos, sesenta preguntas y ciento ochenta opciones', () => {
+    expect(homes.map((home) => home.id)).toEqual(Array.from({ length: 20 }, (_, index) => `H${String(index + 1).padStart(2, '0')}`))
+    expect(homes.flatMap((home) => home.questions)).toHaveLength(60)
+    expect(homes.flatMap((home) => home.questions.flatMap((question) => question.options))).toHaveLength(180)
   })
 
   it('mantiene los tipos, identificadores y la distribución 2/1/0', () => {
+    const questionIds = new Set<string>()
     const optionIds = new Set<string>()
     for (const home of homes) {
       expect(home.questions.map((question) => question.kind)).toEqual(['concreta', 'interpretativa', 'sorpresa'])
@@ -36,6 +37,8 @@ describe('contenido aprobado', () => {
       expect(home.imageAlt.trim().length).toBeGreaterThan(20)
       expect(home.imageAlt.toLowerCase()).not.toContain(home.profileName.toLowerCase())
       for (const question of home.questions) {
+        expect(questionIds.has(question.id)).toBe(false)
+        questionIds.add(question.id)
         expect(question.options.map((option) => option.points).sort()).toEqual([0, 1, 2])
         expect(question.prompt.trim()).not.toBe('')
         for (const option of question.options) {
@@ -46,7 +49,8 @@ describe('contenido aprobado', () => {
         }
       }
     }
-    expect(optionIds.size).toBe(45)
+    expect(questionIds.size).toBe(60)
+    expect(optionIds.size).toBe(180)
   })
 
   it.each(expectedAnswers)('%s conserva la respuesta exacta y la alternativa plausible', (questionId, exact, plausible) => {
@@ -55,7 +59,7 @@ describe('contenido aprobado', () => {
     expect(question?.options.find((option) => option.points === 1)?.label).toBe(plausible)
   })
 
-  it('sirve cinco ilustraciones SVG locales sin recursos remotos', () => {
+  it('sirve veinte ilustraciones SVG locales sin recursos remotos', () => {
     for (const home of homes) {
       const file = resolve('public', home.imageSrc.slice(1))
       expect(existsSync(file), home.id + ' necesita ilustración').toBe(true)
@@ -63,6 +67,16 @@ describe('contenido aprobado', () => {
       expect(svg).toContain('<svg')
       expect(svg.length).toBeGreaterThan(1000)
       expect(svg).not.toMatch(/(?:href|src)=["'](?:https?:)?\/\//i)
+    }
+  })
+
+  it('conecta los retratos existentes y conserva el retrato publicado de Vera', () => {
+    expect(homes[0].revealPortrait?.src).toBe('/characters/vera-reveal.webp')
+    for (const [index, filename] of [[1, 'character-reveal.jpg'], [2, 'character-reveal.png'], [3, 'character-reveal.jpg'], [4, 'character-reveal.png']] as const) {
+      const portrait = homes[index].revealPortrait
+      expect(portrait?.src).toBe(`/assets/h${String(index + 1).padStart(2, '0')}/${filename}`)
+      expect(portrait?.alt).toContain(homes[index].profileName)
+      expect(existsSync(resolve('public', portrait!.src.slice(1)))).toBe(true)
     }
   })
 

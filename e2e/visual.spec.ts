@@ -7,8 +7,6 @@ const height = 900
 test.beforeEach(async ({ page }) => {
   // Remote fonts would make the reference depend on network access and cache state.
   await page.route(/^https:\/\/fonts\.(googleapis|gstatic)\.com\//, (route) => route.abort())
-  await page.goto('/')
-  await page.evaluate(() => document.fonts.ready)
 })
 
 async function assertNoClippedText(page: Page) {
@@ -46,11 +44,13 @@ async function screenshot(page: Page, name: string, width: number) {
 for (const width of widths) {
   test(`four screens at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height })
-    await expect(page.getByRole('heading', { name: /cinco hogares,?\s*cinco misterios/i })).toBeVisible()
+    await page.goto('/')
+    await page.evaluate(() => document.fonts.ready)
+    await expect(page.getByRole('heading', { name: /20 hogares,?\s*20 misterios/i })).toBeVisible()
     await screenshot(page, 'home', width)
 
     await page.getByRole('button', { name: /empezar a jugar/i }).click()
-    await expect(page.getByText('Hogar 1 de 5')).toBeVisible()
+    await expect(page.getByText('Hogar 1 de 20')).toBeVisible()
     await expect(page.getByRole('img', { name: 'Progreso: pregunta 1 de 3' })).toBeVisible()
     await screenshot(page, 'game', width)
 
@@ -73,8 +73,8 @@ for (const width of widths) {
 
     for (let homeIndex = 1; homeIndex < homes.length; homeIndex += 1) {
       await page.getByRole('button', { name: 'Siguiente hogar' }).click()
-      await expect(page.getByText(`Hogar ${homeIndex + 1} de 5`)).toBeVisible()
-      await expect(page.locator('.home-progress [aria-current="step"]')).toHaveCount(1)
+      await expect(page.getByText(`Hogar ${homeIndex + 1} de 20`)).toBeVisible()
+      await expect(page.getByRole('progressbar', { name: 'Progreso de hogares' })).toHaveAttribute('aria-valuenow', String(homeIndex + 1))
       await expect.poll(() => page.locator('.scene > img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true)
       for (let question = 0; question < 3; question += 1) {
         await assertLayout(page)
@@ -89,8 +89,8 @@ for (const width of widths) {
 
     await page.getByRole('button', { name: 'Ver resultado final' }).click()
     await expect(page.getByRole('heading', { name: 'Resultado final' })).toBeVisible()
-    await expect(page.getByRole('progressbar', { name: 'Puntaje total de la partida' })).toHaveAttribute('aria-valuenow', '30')
-    await expect(page.locator('.completed-home')).toHaveCount(5)
+    await expect(page.getByRole('progressbar', { name: 'Puntaje total de la partida' })).toHaveAttribute('aria-valuenow', '120')
+    await expect(page.locator('.completed-home')).toHaveCount(20)
     await screenshot(page, 'result', width)
 
     await page.getByRole('button', { name: 'Jugar otra vez' }).click()
