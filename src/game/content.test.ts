@@ -32,7 +32,7 @@ describe('contenido aprobado', () => {
     const optionIds = new Set<string>()
     for (const home of homes) {
       expect(home.questions.map((question) => question.kind)).toEqual(['concreta', 'interpretativa', 'sorpresa'])
-      expect(home.imageSrc).toBe(`/homes/${home.id.toLowerCase()}.svg`)
+      expect(home.imageSrc).toBe(`/assets/${home.id.toLowerCase()}/home.jpg`)
       expect(home.imageAlt.trim().length).toBeGreaterThan(20)
       expect(home.imageAlt.toLowerCase()).not.toContain(home.profileName.toLowerCase())
       for (const question of home.questions) {
@@ -55,14 +55,18 @@ describe('contenido aprobado', () => {
     expect(question?.options.find((option) => option.points === 1)?.label).toBe(plausible)
   })
 
-  it('sirve cinco ilustraciones SVG locales sin recursos remotos', () => {
-    for (const home of homes) {
+  it('sirve cinco fotografias JPG y cinco retratos de revelacion', () => {
+    const portraitFiles = ['character-reveal.png', 'character-reveal.jpg', 'character-reveal.png', 'character-reveal.jpg', 'character-reveal.png']
+    for (const [index, home] of homes.entries()) {
       const file = resolve('public', home.imageSrc.slice(1))
-      expect(existsSync(file), home.id + ' necesita ilustración').toBe(true)
-      const svg = readFileSync(file, 'utf8')
-      expect(svg).toContain('<svg')
-      expect(svg.length).toBeGreaterThan(1000)
-      expect(svg).not.toMatch(/(?:href|src)=["'](?:https?:)?\/\//i)
+      expect(existsSync(file), home.id + ' necesita fotografia').toBe(true)
+      const jpg = readFileSync(file)
+      expect(jpg[0]).toBe(0xff)
+      expect(jpg[1]).toBe(0xd8)
+      const expectedPortrait = `/assets/${home.id.toLowerCase()}/${portraitFiles[index]}`
+      expect(home.revealPortrait?.src).toBe(expectedPortrait)
+      expect(home.revealPortrait?.alt).toContain(home.profileName)
+      expect(existsSync(resolve('public', expectedPortrait.slice(1))), home.id + ' necesita retrato').toBe(true)
     }
   })
 

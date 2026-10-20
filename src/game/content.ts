@@ -11,10 +11,10 @@ function question(id: string, kind: Question['kind'], prompt: string, inputs: re
 
 export const homes: readonly Home[] = [
   {
-    id: 'H01', title: 'El taller azul', imageSrc: '/homes/h01.svg',
+    id: 'H01', title: 'El taller azul', imageSrc: '/assets/h01/home.jpg',
     revealPortrait: {
-      src: '/characters/vera-reveal.webp',
-      alt: 'Retrato ilustrado de Vera con pañuelo amarillo y delantal azul',
+      src: '/assets/h01/character-reveal.png',
+      alt: 'Retrato 3D estilizado de Vera con pañuelo amarillo y delantal azul',
     },
     profileName: 'Vera',
     imageAlt: 'En un rincón azul hay una bicicleta a medio reparar, herramientas, un banquito con tornillos, un mapa marcado, postales de murales y muestras de color cerca de una pared pintada.',
@@ -39,7 +39,9 @@ export const homes: readonly Home[] = [
     ],
   },
   {
-    id: 'H02', title: 'La cocina verde', imageSrc: '/homes/h02.svg', profileName: 'Gael',
+    id: 'H02', title: 'La cocina verde', imageSrc: '/assets/h02/home.jpg',
+    revealPortrait: { src: '/assets/h02/character-reveal.jpg', alt: 'Retrato 3D estilizado de Gael' },
+    profileName: 'Gael',
     imageAlt: 'En una cocina verde hay macetas de hierbas, una en flor, hojas secándose, tetera, frascos de condimentos, sobres ilustrados, semillas, bolsitas de infusión y un plano de una plaza.',
     profile: 'Cultivo hierbas para preparar infusiones. También intercambio semillas en la plaza para probar plantas nuevas.',
     reveal: 'La tetera y las hojas secas apuntan a las infusiones. Unas semillas en un sobre y el plano de la plaza revelan el intercambio.',
@@ -62,7 +64,9 @@ export const homes: readonly Home[] = [
     ],
   },
   {
-    id: 'H03', title: 'El escenario de papel', imageSrc: '/homes/h03.svg', profileName: 'Leo',
+    id: 'H03', title: 'El escenario de papel', imageSrc: '/assets/h03/home.jpg',
+    revealPortrait: { src: '/assets/h03/character-reveal.png', alt: 'Retrato 3D estilizado de Leo' },
+    profileName: 'Leo',
     imageAlt: 'En un estudio violeta una lámpara ilumina un escenario de cartón con figuras de peces, olas y un bote. Hay recortes en la pared, boletos hechos a mano y un calendario con un patio dibujado.',
     profile: 'Invento historias de sombras con papel. Estoy preparando una aventura submarina para mostrarla en el patio.',
     reveal: 'La lámpara y el escenario muestran un teatro de sombras. Los peces sitúan la aventura bajo el mar; boletos y calendario revelan una función en el patio.',
@@ -85,7 +89,9 @@ export const homes: readonly Home[] = [
     ],
   },
   {
-    id: 'H04', title: 'Las postales sonoras', imageSrc: '/homes/h04.svg', profileName: 'Noa',
+    id: 'H04', title: 'Las postales sonoras', imageSrc: '/assets/h04/home.jpg',
+    revealPortrait: { src: '/assets/h04/character-reveal.jpg', alt: 'Retrato 3D estilizado de Noa' },
+    profileName: 'Noa',
     imageAlt: 'Junto a una ventana urbana hay una grabadora, auriculares, un teclado pequeño, un mapa de paseos, cuaderno con notas y dibujos de ondas, y un sobre entreabierto con hojas de notas junto a otro ilustrado.',
     profile: 'Salgo a escuchar y registrar sonidos cotidianos. Después dibujo postales inspiradas en ellos y las envío a mis amistades.',
     reveal: 'Grabadora, mapa y notas de lugares muestran paseos sonoros. Los dibujos de ondas pasan a los sobres: Noa envía postales ilustradas a sus amistades.',
@@ -108,7 +114,9 @@ export const homes: readonly Home[] = [
     ],
   },
   {
-    id: 'H05', title: 'La azotea del viento', imageSrc: '/homes/h05.svg', profileName: 'Teo',
+    id: 'H05', title: 'La azotea del viento', imageSrc: '/assets/h05/home.jpg',
+    revealPortrait: { src: '/assets/h05/character-reveal.png', alt: 'Retrato 3D estilizado de Teo' },
+    profileName: 'Teo',
     imageAlt: 'En una azotea hay un paraguas roto, retazos y bolsa de tela, cometas numeradas de distintas formas, telas colgadas con pinzas, flechas de viento y una libreta con marcas de pruebas y estrellas junto a algunos diseños.',
     profile: 'Convierto paraguas rotos en cometas. Numero mis diseños para comparar cómo vuela cada forma.',
     reveal: 'El paraguas y los retazos muestran el material reutilizado. Los números, las flechas de viento y las marcas de la libreta revelan las pruebas de vuelo.',
