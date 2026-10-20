@@ -11,6 +11,7 @@ export default function QuestionView({ question, questionNumber, onAnswer }: Que
     <section className="question-panel" aria-labelledby="question-heading">
       <p className="eyebrow">Pregunta {questionNumber} de 3</p>
       <h2 id="question-heading" tabIndex={-1}>{question.prompt}</h2>
+      <p className="options-scroll-hint" aria-hidden="true">Deslizá para ver las tres opciones ↓</p>
       <fieldset className="options">
         <legend>Opciones</legend>
         {question.options.map((option, index) => (

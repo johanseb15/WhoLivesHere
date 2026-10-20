@@ -1,6 +1,6 @@
-# WhoLivesHere? 0.1
+# WhoLivesHere? — 20 niveles
 
-Prototipo web local de deducción. Observá cinco hogares ilustrados, respondé tres preguntas por hogar y descubrí el perfil ficticio después de cada ronda. La puntuación es fija: 2 puntos por la respuesta del perfil, 1 por una alternativa plausible respaldada por una pista y 0 por una opción sin apoyo suficiente.
+Juego web local de deducción. Observá veinte hogares ilustrados, respondé tres preguntas por hogar y descubrí el perfil ficticio después de cada ronda. La puntuación es fija: 2 puntos por la respuesta del perfil, 1 por una alternativa plausible respaldada por una pista y 0 por una opción sin apoyo suficiente.
 
 ## Requisitos y ejecución
 
@@ -24,7 +24,7 @@ Para activarlo, en GitHub abrí **Settings → Pages → Build and deployment �
 
 ## Cómo jugar
 
-Cada hogar muestra una ilustración que permanece visible mientras se responde. Elegí una de las tres opciones de cada pregunta; la selección avanza a la siguiente sin mostrar puntos. Después de la tercera, la revelación explica el perfil y la puntuación sobre 6. Seguí hasta el resultado sobre 30 y usá **Nueva partida** para empezar otra vez. No hay cronómetro, cuentas ni guardado de partidas.
+Cada hogar muestra una ilustración que permanece visible mientras se responde. Elegí una de las tres opciones de cada pregunta; la selección avanza a la siguiente sin mostrar puntos. Después de la tercera, la revelación explica el perfil y la puntuación sobre 6. Seguí hasta el resultado sobre 120 y usá **Nueva partida** para empezar otra vez. No hay cronómetro, cuentas ni guardado de partidas.
 
 Los botones admiten teclado: Tab para desplazarse y Enter o Espacio para activar. Tras cada cambio de pregunta o pantalla, el foco se mueve al encabezado nuevo. Las escenas tienen texto alternativo descriptivo.
 
@@ -34,10 +34,10 @@ Los botones admiten teclado: Tab para desplazarse y Enter o Espacio para activar
     pnpm.cmd run typecheck
     pnpm.cmd run build
 
-Los tests comprueban 5 hogares, 15 preguntas, 45 opciones, distribución 2/1/0, máximos de 6 y 30 puntos, entradas inválidas, clics duplicados, recorrido completo, reinicio y teclado. También verifican que las cinco rutas de ilustración apuntan a SVG locales sin referencias remotas.
+Los tests comprueban 20 hogares, 60 preguntas, 180 opciones, distribución 2/1/0, máximos de 6 y 120 puntos, entradas inválidas, clics duplicados, recorrido completo, reinicio y teclado. También verifican que las veinte rutas de ilustración apuntan a SVG locales sin referencias remotas.
 
-Para una revisión manual, completá los cinco hogares en la vista local, confirmá que cada revelación aparece antes de avanzar y que el resultado final coincide con las respuestas. En una ventana móvil, comprobá que no haya desbordamiento horizontal y que la ilustración siga visible mientras se desplazan las opciones y las explicaciones.
+Para una revisión manual, completá los veinte hogares en la vista local, confirmá que cada revelación aparece antes de avanzar y que el resultado final coincide con las respuestas. En una ventana móvil, comprobá que no haya desbordamiento horizontal y que la ilustración siga visible mientras se desplazan las opciones y las explicaciones. Las ilustraciones de H06 a H20 se regeneran con `node scripts/generate-extra-scenes.mjs`.
 
 ## Alcance de la versión
 
-Las cinco escenas y perfiles son ficticios. Las pistas interpretativas no pretenden describir rasgos psicológicos reales. La estimación editorial de 45–60 segundos por hogar requiere validación con jugadores; el prototipo no la impone. No hay backend, base de datos, fotos reales, servicios externos durante el juego ni IA en ejecución.
+Las veinte escenas y perfiles son ficticios. Las pistas interpretativas no pretenden describir rasgos psicológicos reales. Los niveles H06 a H20 usan pictogramas tipográficos que pueden variar ligeramente según el sistema. No hay backend, base de datos, fotos reales, servicios externos durante el juego ni IA en ejecución.

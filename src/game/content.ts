@@ -1,4 +1,5 @@
 import type { Home, Option, Points, Question } from './types'
+import { extraHomes } from './extraContent'
 
 type OptionInput = readonly [key: string, label: string, points: Points, explanation: string]
 
@@ -6,7 +7,8 @@ function question(id: string, kind: Question['kind'], prompt: string, inputs: re
   const options: Option[] = inputs.map(([key, label, points, explanation]) => ({
     id: id + '-' + key, label, points, explanation,
   }))
-  return { id, kind, prompt, options }
+  const shift = (Number(id.slice(1, 3)) + Number(id.slice(-1)) - 2) % 3
+  return { id, kind, prompt, options: [...options.slice(shift), ...options.slice(0, shift)] }
 }
 
 export const homes: readonly Home[] = [
@@ -125,4 +127,5 @@ export const homes: readonly Home[] = [
       ]),
     ],
   },
+  ...extraHomes,
 ]

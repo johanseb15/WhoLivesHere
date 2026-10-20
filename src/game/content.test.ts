@@ -22,10 +22,10 @@ const expectedAnswers = [
 ] as const
 
 describe('contenido aprobado', () => {
-  it('contiene cinco hogares, quince preguntas y cuarenta y cinco opciones', () => {
-    expect(homes.map((home) => home.id)).toEqual(['H01', 'H02', 'H03', 'H04', 'H05'])
-    expect(homes.flatMap((home) => home.questions)).toHaveLength(15)
-    expect(homes.flatMap((home) => home.questions.flatMap((question) => question.options))).toHaveLength(45)
+  it('contiene veinte hogares con tres preguntas y tres opciones cada uno', () => {
+    expect(homes.map((home) => home.id)).toEqual(Array.from({ length: 20 }, (_, index) => `H${String(index + 1).padStart(2, '0')}`))
+    expect(homes.flatMap((home) => home.questions)).toHaveLength(60)
+    expect(homes.flatMap((home) => home.questions.flatMap((question) => question.options))).toHaveLength(180)
   })
 
   it('mantiene los tipos, identificadores y la distribución 2/1/0', () => {
@@ -46,7 +46,7 @@ describe('contenido aprobado', () => {
         }
       }
     }
-    expect(optionIds.size).toBe(45)
+    expect(optionIds.size).toBe(180)
   })
 
   it.each(expectedAnswers)('%s conserva la respuesta exacta y la alternativa plausible', (questionId, exact, plausible) => {
@@ -55,7 +55,15 @@ describe('contenido aprobado', () => {
     expect(question?.options.find((option) => option.points === 1)?.label).toBe(plausible)
   })
 
-  it('sirve cinco ilustraciones SVG locales sin recursos remotos', () => {
+  it('reparte las respuestas exactas entre las tres posiciones de toda la partida', () => {
+    const positions = homes.flatMap((home) => home.questions.map((question) =>
+      question.options.findIndex((option) => option.points === 2)))
+    expect(positions.filter((position) => position === 0)).toHaveLength(20)
+    expect(positions.filter((position) => position === 1)).toHaveLength(20)
+    expect(positions.filter((position) => position === 2)).toHaveLength(20)
+  })
+
+  it('sirve veinte ilustraciones SVG locales sin recursos remotos', () => {
     for (const home of homes) {
       const file = resolve('public', home.imageSrc.slice(1))
       expect(existsSync(file), home.id + ' necesita ilustración').toBe(true)

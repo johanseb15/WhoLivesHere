@@ -28,12 +28,12 @@ describe('motor de puntuación', () => {
     expect(scoreHome(homes, answers, 'desconocido')).toBe(0)
   })
 
-  it('alcanza 30 con quince respuestas exactas y 0 con quince incorrectas', () => {
+  it('alcanza 120 con sesenta respuestas exactas y 0 con sesenta incorrectas', () => {
     const exact = Object.fromEntries(homes.flatMap((home) =>
       home.questions.map((question) => [question.id, question.options.find((option) => option.points === 2)!.id])))
     const wrong = Object.fromEntries(homes.flatMap((home) =>
       home.questions.map((question) => [question.id, question.options.find((option) => option.points === 0)!.id])))
-    expect(scoreGame(homes, exact)).toBe(30)
+    expect(scoreGame(homes, exact)).toBe(120)
     expect(scoreGame(homes, wrong)).toBe(0)
   })
 
