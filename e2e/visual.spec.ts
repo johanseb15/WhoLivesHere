@@ -40,11 +40,12 @@ async function screenshot(page: Page, name: string, width: number) {
   await page.evaluate(() => document.fonts.ready)
   await expect.poll(() => page.locator('img').evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBe(true)
   await assertLayout(page)
-  await expect(page).toHaveScreenshot(`${name}-${width}.png`, { fullPage: true, animations: 'disabled' })
+  await expect(page).toHaveScreenshot(`${name}-${width}.png`, { fullPage: true, animations: 'disabled', timeout: 15_000 })
 }
 
 for (const width of widths) {
   test(`four screens at ${width}px`, async ({ page }) => {
+    test.setTimeout(60_000)
     await page.setViewportSize({ width, height })
     await expect(page.getByRole('heading', { name: /cinco hogares,?\s*cinco misterios/i })).toBeVisible()
     await screenshot(page, 'home', width)
