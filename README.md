@@ -1,3 +1,26 @@
+# WhoLivesHere
+
+> **Ficha de proyecto — Vyntrava | 2026-11-20**
+> Revisión documental del repositorio. Esta ficha no certifica un despliegue ni un estado de producción.
+
+## Para qué sirve
+
+**Juego web de deducción visual.** Juego React/TypeScript/Vite de cinco hogares ficticios con tres preguntas por hogar, puntuación 2/1/0 y pruebas de accesibilidad y navegación.
+
+## Estado y límites
+
+MVP jugable de laboratorio; no se verificó un despliegue público en esta auditoría. Las mejoras visuales deben respetar pruebas, rendimiento y accesibilidad.
+
+## Lugar en el portfolio
+
+Producto digital propio, separado de las aplicaciones comerciales y de los sistemas de datos de Vyntrava.
+
+[Consultar repositorio](https://github.com/johanseb15/WhoLivesHere)
+
+---
+
+> **README técnico original:** se conserva íntegro a continuación.
+
 # WhoLivesHere? 0.1
 
 Prototipo web local de deducción. Observá cinco hogares ilustrados, respondé tres preguntas por hogar y descubrí el perfil ficticio después de cada ronda. La puntuación es fija: 2 puntos por la respuesta del perfil, 1 por una alternativa plausible respaldada por una pista y 0 por una opción sin apoyo suficiente.
